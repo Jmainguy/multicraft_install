@@ -1,0 +1,40 @@
+Copyright Statement and License Agreement
+
+AGREEMENT
+I. By using the Multicraft daemon software and/or the Multicraft control panel and/or any other software from xhost.ch GmbH ("the software") you ("the licensee") agree to this copyright statement and license agreement.
+
+TITLE
+II. All and any copyright or other intellectual property rights for the software is and shall remain the exclusive property of xhost.ch GmbH ("the developer"). Relevant information concerning this software shall be found on the internet under http://www.xhost.ch and http://www.multicraft.org ("the website of the developer").
+
+DISTRIBUTION
+III. The developer retains the exclusive right to distribute the software. The developer may grant third parties the right to distribute the software.
+
+MODIFICATION
+IV. The licensee is free to modify any file related to the front end (files ending in ".php") under the following conditions: a) Every mention of the copyright and the developer must remain intact and visible by anyone using the software unless the developer grants explicit permission to the licensee to remove these portions of the code. b) The name of the software as well as a link to the website of the developer must be easily an obviously accessible by anyone using the software unless the developer grants explicit permission to the licensee to omit these items. c) Modifications intended for or directed toward the circumvention of the limitations of the software imposed by the license purchased (or received for free) by the licensee are forbidden. d) Neither the changes to the software, nor the changed software nor the original software shall be distributed or made accessible to a third party by the licensee unless explicitly permitted by the developer.
+
+LICENSE
+V. The licensee is free to use this software without a license key for an unlimited period of time using the features of the free version as described on the website of the developer as long as the software is not used in any way intended for or directed toward commercial advantage or private monetary compensation.
+
+VI. By supplying the software with a license key purchased by the licensee from the developer or from an explicitly authorized third party reseller for himself the licensee obtains the right to use extended functionality of the software as described in the product description on the website of the developer.
+
+VII. A license key purchased from the developer is intended to be used on one physical or virtual server and shall not be used in parallel on more than one physical or virtual machine unless the license explicitly allows this.
+
+VIII. A license key shall not be shared or sold or in any way transferred to a third party. A license key is the exclusive property of the licensee. The developer reserves the right to disable license keys used by the licensee if the licensee is in breach of any term, condition or provision of this license agreement.
+
+TERMINATION
+IX. The developer may terminate this license agreement by notice if the licensee is in breach of any term, condition or provision of this license agreement. On termination the licensee shall pay the developer all and any costs and expenses, including legal and other fees incurred in respect of the software, this license or otherwise.
+
+WARRANTY
+X. This Software is provided free of charge on an 'as is' basis. No warranty is given by the developer in relation to the software of the uses to which it may be put by the licensee, or its merchantability, fitness or suitability for any particular purpose or conditions; and/or that the use of the software and all documentation relating thereto by the licensee will not infringe any third party copyright or other intellectual property rights. The developer shall furthermore be under no obligation to provide support of any nature for the Software and the Documentation. This also applies to custom developed changes or additions to the software.
+XI. By purchasing a license key from the developer the licensee obtains the right to use the software in a configuration that has the advantages over the free version of the software mentioned on the website of the developer. The developer does not guarantee the full functionality of the software for the specific environment, hardware, system or configuration of the licensee.
+
+LIMIT OF LIABILITY
+XII. In no event shall the developer be liable for any loss or damages whatsoever or howsoever caused arising directly or indirectly in connection with this license, the software, its use or otherwise except to the extent that such liability may not be lawfully excluded. Notwithstanding the generality of the foregoing, the developer expressly excludes liability for indirect, special, incidental or consequential loss or damage which may arise in respect of the software or its use, or in respect of other equipment or property, or for loss of profit, business, revenue, goodwill or anticipated savings.
+
+SALVATORY CLAUSE
+XIII. Should any clause of this agreement be invalid, this shall not affect the validity of the remaining clauses. The parties undertake to replace the invalid clause with a valid clause coming closest to the original, but invalid clause.
+
+Multicraft is (c) copyright 2010-2012 by xhost.ch GmbH
+All rights reserved.
+http://www.xhost.ch
+

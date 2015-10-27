@@ -1,0 +1,9 @@
+
+- name: Do the work
+  hosts: multicraft
+  roles:
+    - ssh-key
+    - host-config
+    - httpd
+    - mysql-server
+    - multicraft

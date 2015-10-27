@@ -1,0 +1,297 @@
+[multicraft]
+## The daemon will run under this user (not used for Windows)
+user = minecraft:minecraft
+## Directories created by Multicraft will have the owner set to
+## the user and the group set to the webUser (not used for Windows)
+## default: same as "user"
+webUser = www-data:www-data
+
+## The daemon will listen on the following IP/port.
+## 0.0.0.0 to listen on all available interfaces (all IPs). Note that
+## you will have to use the "externalIp" setting below if you set this
+## to 0.0.0.0 as the control panel needs to know where to connect.
+ip = 127.0.0.1
+port = 25465
+
+## If the external address is different from the listen address
+## you can set the external address here. This setting will be saved
+## to the DB and used by the control panel to connect to the daemon.
+## default: same as "ip"
+#externalIp =
+
+## The connection password for daemon communication
+## !! Change this when you set Multicraft to listen on a public IP !!
+## The same password will have to be put in the panels "daemon.php"
+#password = none
+
+## Remote IP restrictions for daemon connections. This is a comma separated
+## list of IPs that are allowed to connect to this daemon. Empty for all
+## remote IPs allowed.
+## default: empty
+#allowedIps = 127.0.0.1
+
+## The maximum number of daemon connections to allow to this daemon.
+## default: 500
+#maxConnections = 500
+
+## The daemon ID. Only used for reseller edition to assign servers to daemons
+## Running multiple servers with the same IDs can cause unpredictable behavior
+## Valid values: 1, 2, ..., 10
+#id = 1
+
+## The database containing daemon 
+## default: sqlite:data.db (-> "baseDir"/"dataDir"/data.db)
+#database = sqlite:data.db
+## Example for MySQL connections:
+#database = mysql:host=127.0.0.1;dbname=multicraft_daemon
+#dbUser = youruser
+#dbPassword = yourpassword
+#dbCharset = utf8
+
+## A name for this daemon, this is optional
+## default: Multicraft Daemon
+#name =
+
+## The amount of memory available to this daemon in MB. This setting mainly
+## serves informational purpose for display in the control panel and
+## for the API to decide if this daemon can still run more servers.
+## 0 means undefined
+## default: 0
+#totalMemory =
+
+## The base directory of the multicraft install. Relative to the users
+## home directory or absolute. Must exist.
+## default: multicraft (-> /home/"user"/multicraft)
+baseDir = multicraft
+## The directory the daemon binaries reside in
+## default: bin (-> "baseDir"/bin)
+daemonDir = bin
+## The data directory. Contains the database, socket, log and
+## must be accessible by the control panel user if using a SQLite DB
+## default: data (-> "baseDir"/data)
+dataDir = data
+## The directory jar files can be placed in
+## default: jar (-> "baseDir"/jar)
+jarDir = jar
+## The directory containing all the servers. Users can be given access
+## to specific subdirectories containing their server data
+## default: servers (-> "baseDir"/servers)
+serversDir = servers
+## The following files contain daemon specific data.
+## The paths specified are relative to "baseDir"
+pidFile = multicraft.pid
+logFile = multicraft.log
+licenseFile = multicraft.key
+scriptsFile = scripts.conf
+
+## Note that for all of the above settings where a file or directory is
+## indicated you can also use absolute paths (/dir), home-relative
+## paths (~/dir) or relative paths (./dir or ../dir). "dir" stands for
+## the setting you're editing.
+## When not using absolute/relative paths the setting is taken to be
+## relative to the home directory of the user configured by the "user"
+## setting.
+## Examples:
+## - Changing "baseDir" to ./multicraft will cause multicraft to search
+##   all the files in a subdirectory "multicraft" of the directory it's
+##   called from
+## - Changing "logFile" to ~/multicraft.log will cause Multicraft to log
+##   everything to the file multicraft.log in the home directory of the
+##   user configured by the "user" setting
+
+## The maximum size of one logfile after which the log will be rotated
+## default: 20971520 (20 MB)
+logSize = 20971520
+
+## The number of log files to keep (multicraft.log.1 ... multicraft.log.X)
+## default: 9
+logCount = 9
+
+## Synchronize log writes. Disabling this will improve performance at the
+## risk of having some log entries overlap.
+## default: true
+#logSync = false
+
+## Use thesyslog facility instead of logging to a file.
+## default: false
+#logSyslog = true
+
+## The syslog facility to log to. Possible values: auth, cron, daemon,
+## kern, lpr, mail, news, security, syslog, user, uucp, local10-17
+## default: daemon
+#logFacility = daemon
+
+## Delay between server auto-starts in milliseconds.
+## default: 750
+autostartDelay = 750
+
+## A list of section names in .conf files that can safely be defined
+## or overridden by users. Note that this is just a default value that
+## can itself be overridden in the .conf files in the daemon directory.
+## Use * to allow all sections or a regular expression matching allowed
+## sections only.
+## default: ^(encoding|commands|parse_.+)$
+#safeConfSections = ^(encoding|commands|parse_.+)$
+
+## Allow symlinks where directories are expected. This check is done for
+## security.
+## default: false
+#allowSymlinks = false
+
+## Skip the integrity check for directories. This check is done for
+## security, it verifies that a directory entry is consistent with its
+## filesystem entry. You can disable this if this check causes issues
+## on your particular filesystem.
+#default: false
+#skipIntegrityCheck = false
+
+[useragent]
+## The path to the Multicraft useragent. This program is used in
+## multiuser mode to access user files.
+## default: bin (-> "baseDir"/bin, same as daemonDir)
+#userAgentDir = bin
+## The executable of the Multicraft useragent. Note that a config
+## file with the same name as this setting (plus .conf) will be
+## generated next to this file.
+## default: launcher (-> "baseDir"/"userAgentDir"/useragent)
+#userAgentFile = useragent
+## The minimum allowed user and group IDs for server users
+## default: 100
+#userAgentMinUid = 100
+#userAgentMinGid = 100
+## The script to run when a server is being prepared. The path is
+## relative to the userAgentDir.
+## NOTE: This script will be run as the superuser.
+## default: empty
+#userAgentSuperuserPrepare = 
+## The script to run when a server is being prepared. The path is
+## relative to the baseDir.
+## default: empty
+#userAgentPrepare = 
+## Various useragent configuration options
+#userAgentCp = /bin/cp
+#userAgentCpOpts = --preserve=mode,timestamps
+#userAgentUnzip = /usr/bin/unzip
+#userAgentUnzipOpts = -qql
+#userAgentUnzipRe = ^(?:\s+[^\s]+){3}\s+(.*)$
+
+
+[launcher]
+## The path to the Multicraft launcher. This launcher program enables
+## Multicraft to run servers that need a console to run correctly.
+## default: launcher (-> "baseDir"/launcher)
+#launcherDir = launcher
+## The executable of the Multicraft launcher
+## default: launcher (-> "baseDir"/"launcherDir"/launcher)
+#launcherFile = launcher
+
+## Integrated FTP server settings
+[ftp]
+## Wheter or not to enable the integrated FTP server, true/false
+## default: true
+enabled = true
+## IP to listen on for FTP connections, uncomment to use the same as
+## for the daemon.
+## 0.0.0.0 means listening on all available interfaces (all IPs)
+## default: same as the "ip" setting for the daemon, see above
+#ftpIp = 0.0.0.0
+## See the descriptions of "externalIp" and "ip" for the daemon above
+## default: same as "externalIp" if "ftpIp" is "0.0.0.0" otherwise "ftpIp"
+#ftpExternalIp = 
+## Masquerade IP address to use for passive FTP connections when
+## Multicraft is running behind a router.
+## default: empty
+#ftpNatIp = 
+## A port range to use for passive data transfers. If this is not
+## specified the FTP server will use random ports.
+## Format: 4000-8000
+## default: empty
+#ftpPasvPorts = 
+## Port to listen on for incoming FTP connections. Change this to
+## something else if you are already running an FTP server on this
+## system.
+## default: 21
+ftpPort = 21
+## Regular expression matching files that can't be manipulated by
+## users in any way. If you want users to be able to upload their own
+## plugins instead of using the ones you provide for them you can
+## just comment this option out.
+## default: empty
+forbiddenFiles = \.(jar|exe|bat|pif|sh)$
+
+## Minecraft default settings
+[minecraft]
+## The default amount of reserved memory
+## default: 1024
+memory = 1024
+## The name of the java executable
+## default: java
+java = /usr/bin/java
+## The jar file to use. This file will be looked for in the "base"
+## directory as configured above
+## default: minecraft_server.jar
+jar = minecraft_server.jar
+
+## Backup settings
+[backup]
+## The command to run a backup. The following variables can be used:
+## - {WORLD} The name of the world being backed up
+## - {SERVER_DIR} The directory of the server (working directory)
+## - {MULTICRAFT_DIR} The Multicraft base directory ("baseDir" above)
+## - {BASE_DIR} The directory containing all the servers ("serversDir above")
+## Note that the resulting files is expected to be named "{WORLD}-tmp.zip"
+command = /usr/bin/zip -qr "{WORLD}-tmp.zip" . -i "{WORLD}"*/*
+## The same setting for Windows systems
+commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" "{WORLD}"*/
+
+## System settings
+[system]
+## Most of the settings below are for Linux only
+
+## Whether or not to use one system user per Minecraft server.
+## This is recommended if you let your users upload untrusted executables.
+## Note that for every server a new system user is automatically created
+## if this option is enabled (user name format and commands configured below).
+## default: false
+#multiuser = true
+
+## Display the output of this command in the panel under
+## "Settings"->"Multicraft Status"
+## default: empty
+infoCmd = uptime
+infoCmdWin =
+
+## The name format for new users, the following variables can be used:
+## - {ID} The server ID
+## default: mc{ID}
+userFormat = mc{ID}
+## The name format for new groups, the following variables can be used:
+## - {ID} The server ID
+## - {USER} The full username
+## default: same as userFormat
+#groupFormat = {USER}
+
+## The commands to create and delete system users and groups
+## The following variables can be used:
+## - {USER} The full username
+## - {GROUP} The full groupname
+## - {ID} The server ID
+## - {DIR} The server base directory, used as the users home
+## These commands cannot contain escaped quotes or empty arguments
+addUser = /usr/sbin/useradd -c "Multicraft Server {ID}" -d "{DIR}" -g "{GROUP}" -s /bin/false "{USER}"
+addGroup = /usr/sbin/groupadd "{GROUP}"
+delUser = /usr/sbin/userdel "{USER}"
+delGroup = /usr/sbin/groupdel "{GROUP}"
+
+## Regular expression for filtering file names. Any match gets replaced by "_".
+## Warning: Changing this is potentially dangerous
+## default: [\\/<>:|*?"'&;$~%\0]
+#fileFilter = [\\/<>:|*?"'&;$~%\0]
+
+## The command to unpack a zip file. The following variables can be used:
+## - {FILE} The name of the zip archive to restore
+unpackCmd = /usr/bin/unzip -quo "{FILE}"
+## The same setting for Windows systems
+unpackCmdWin = "{MULTICRAFT_DIR}\bin\unzip.exe" -quo "{FILE}"
+
+

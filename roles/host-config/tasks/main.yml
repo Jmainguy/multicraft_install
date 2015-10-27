@@ -1,0 +1,71 @@
+---
+
+- name: install epel repo
+  yum: name=http://ftp.linux.ncsu.edu/pub/epel/6/i386/epel-release-6-8.noarch.rpm state=present
+
+- name: Copy rpm pver
+  copy: src=jre-7-linux-x64.rpm dest=/root/jre-7-linux-x64.rpm
+
+- name: install java
+  yum: name=/root/jre-7-linux-x64.rpm state=present
+
+- name: Install yum-utils
+  yum: name=yum-utils state=present
+
+- name: Update yum packages to latest
+  yum: name=* state=latest
+
+- name: install rpms
+  yum: name={{ item }} state=present
+  with_items:
+    - wget
+    - php
+    - php-gd
+    - php-mbstring
+    - php-mysql
+    - zip
+    - unzip
+    - php-mcrypt
+    - rsync
+    - crontabs
+    - lsof
+    - ncompress
+    - libgcc_s.so.1
+    - glibc.i686
+    - tmux
+    - fail2ban
+    - iftop
+    - libstdc++.so.6
+    - bison
+    - gettext
+    - glib2
+    - freetype
+    - fontconfig
+    - libpng
+    - libpng-devel
+    - libX11
+    - libX11-devel
+    - glib2-devel
+    - libgdi*
+    - libexif
+    - glibc-devel
+    - urw-fonts
+    - gcc
+    - gcc-c++
+    - automake
+    - autoconf
+    - libtool
+    - bzip2
+    - nmap
+    - traceroute
+
+- name: Set IPTables rules
+  copy: src=iptables dest=/etc/sysconfig/iptables
+  notify: 
+    - restart iptables
+
+- name: Add mono.conf file
+  copy: src=mono.conf dest=/etc/ld.so.conf.d/mono.conf
+
+- name: Set hostname
+  hostname: name={{ inventory_hostname }} 

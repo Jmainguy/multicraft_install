@@ -1,0 +1,15 @@
+---
+
+- name: Copy Multicraft to /tmp
+  local_action: command rsync -a roles/multicraft/files/multicraft {{ inventory_hostname }}:/tmp/
+
+- name: Copy Multicraft Template
+  template: src=setup.config dest=/tmp/multicraft/setup.config
+
+- name: Install multicraft
+  script: install.sh
+  tags: finish
+
+- name: Add multicraft.conf
+  template: src=multicraft.conf dest=/home/minecraft/multicraft/multicraft.conf
+  tags: finish

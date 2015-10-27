@@ -1,0 +1,27 @@
+---
+
+- name: Install libselinux-python
+  yum: name=libselinux-python state=latest
+  tags:
+    - add_ssh_key
+    - verify
+
+- name: Make /root/.ssh
+  file: path=/root/.ssh owner=root group=root state=directory
+  tags:
+    - add_ssh_key
+    - verify
+
+- name: Install ssh key
+  authorized_key: key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}" manage_dir=no user=root
+  tags:
+    - add_ssh_key
+    - verify
+
+- name: disable selinux
+  selinux: state=disabled
+  notify:
+    - reboot
+  tags:
+    - add_ssh_key
+    - verify

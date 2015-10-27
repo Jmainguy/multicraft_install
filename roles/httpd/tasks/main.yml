@@ -1,0 +1,21 @@
+---
+
+- name: install httpd
+  yum: name=httpd state=latest
+  tags:
+    - apache_install
+    - verify
+
+- name: Allow Overide All
+  copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+  notify:
+    - restart httpd
+  tags:
+    - apache_install
+    - verify
+
+- name: chkconifg httpd
+  service: name=httpd enabled=yes state=started
+  tags:
+    - apache_install
+    - verify
