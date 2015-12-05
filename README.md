@@ -22,6 +22,6 @@ This assumes you are Running either Centos 6.x or 7.x
   2. Fill in the details and hit next a bunch
 5. Start multicraft daemon
   1. ssh into your server and run the following
-    1. /home/minecraft/multicraft/bin/multicraft -v restart
+    1. ```/home/minecraft/multicraft/bin/multicraft -v restart```
 6. Buy Jon a beer
   1. paypal address == billing@standouthost.com
