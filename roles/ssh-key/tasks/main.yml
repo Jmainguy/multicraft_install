@@ -17,6 +17,7 @@
   tags:
     - add_ssh_key
     - verify
+  ignore_errors: true
 
 - name: disable selinux
   selinux: state=disabled
