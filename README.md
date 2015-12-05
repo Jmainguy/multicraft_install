@@ -11,10 +11,10 @@ This assumes you are Running either Centos 6.x or 7.x
   4. Change mc_key= to the actual key for your multicraft (Paid license)
 2. Install ansible
   1. Run the following commands as root on your Centos server
-    1. yum install epel-release
-    2. yum install ansible
+    1. ```yum install epel-release```
+    2. ```yum install ansible```
 3. Run ansible against hosts and playbook
-  1. ansible-playbook -i hosts site.yml -k
+  1. ```ansible-playbook -i hosts site.yml -k```
     1. type password for root when prompted.
 4. Finish install via browser
   1. Go to your servers hostname/ip in browser with url ending in /multicraft
