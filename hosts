@@ -1,4 +1,4 @@
 [random]
-example.com mysql_root_password=IhateKeenanBecauseHeisUgly demon_pass=RANDOM mc_key=FAKE
+example.com mysql_root_password=IhateKeenanBecauseHeisUgly demon_pass=RANDOM mc_key=FAKE whmcs_pass="RANDOM"
 [multicraft:children]
 random
