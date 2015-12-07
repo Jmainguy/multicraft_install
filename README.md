@@ -3,6 +3,7 @@ Ansible playbook for installing multicraft 1.8
 
 ## How To
 This assumes you are Running 7.x
+
 This also assumes you want to install whmcs as well, if not, just remove that line from site.yml
 
 1. Edit the hosts file
@@ -16,7 +17,7 @@ This also assumes you want to install whmcs as well, if not, just remove that li
     1. ```yum install epel-release```
     2. ```yum install ansible```
 3. Install ssh-keys
-  1. ```ssh-keygent -t rsa```
+  1. ```ssh-keygen -t rsa```
     1. Hit enter a bunch
   2. cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 3. Run ansible against hosts and playbook
