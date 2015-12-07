@@ -10,4 +10,4 @@
   mysql_db: name=whmcs state=present
 
 - name: Setup whmcs user
-  mysql_user: user=whmcs password={{ whmcs_pass }} state="present" host="%" priv={{ item }}.*:ALL
+  mysql_user: user=whmcs password={{ whmcs_pass }} state="present" host="%" priv=whmcs.*:ALL

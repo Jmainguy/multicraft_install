@@ -1,0 +1,5 @@
+
+- name: Do the work
+  hosts: multicraft
+  roles:
+    - whmcs
