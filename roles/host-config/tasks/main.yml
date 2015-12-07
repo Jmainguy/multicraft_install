@@ -1,7 +1,7 @@
 ---
 
 - name: install epel repo
-  yum: name=http://ftp.linux.ncsu.edu/pub/epel/6/i386/epel-release-6-8.noarch.rpm state=present
+  yum: name=epel-release state=present
 
 - name: Copy rpm pver
   copy: src=jre-7-linux-x64.rpm dest=/root/jre-7-linux-x64.rpm
@@ -14,6 +14,9 @@
 
 - name: Update yum packages to latest
   yum: name=* state=latest
+
+- name: Remove firewalld
+  yum: name=firewalld state=absent
 
 - name: install rpms
   yum: name={{ item }} state=present
@@ -58,6 +61,7 @@
     - bzip2
     - nmap
     - traceroute
+    - iptables-services
 
 - name: Set IPTables rules
   copy: src=iptables dest=/etc/sysconfig/iptables

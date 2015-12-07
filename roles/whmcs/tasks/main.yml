@@ -1,0 +1,13 @@
+---
+
+- name: Download ioncube
+  unarchive: copy=false src=http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz dest=/usr/local
+
+- name: Add zend to php.ini
+  lineinfile: dest=/etc/php.ini line="zend_extension = /usr/local/ioncube/ioncube_loader_lin_5.4.so" regexp="^zend_extension =" state=present
+
+- name: Setup whmcs database
+  mysql_db: name=whmcs state=present
+
+- name: Setup whmcs user
+  mysql_user: user=whmcs password={{ whmcs_pass }} state="present" host="%" priv={{ item }}.*:ALL
